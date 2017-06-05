@@ -13,6 +13,8 @@ if (isset($_POST['submit']))
 	$uploadLocation = 'upload/';
 	$convertedLocation = 'converted/';
 	$vidsize = $_POST['vidsize'];
+	$frate = $_POST['frate'];
+	$brate = $_POST['brate'];
 	$spacer = '_';
 	$today = date("Y_m_d_His");
 	$vid_ext = '.mp4';
@@ -37,7 +39,7 @@ if (isset($_POST['submit']))
 			
 			move_uploaded_file($_FILES["file"]["tmp_name"], "upload/" . $filename);
 			echo ("Upload and Conversion of " .$filename. " is complete.");
-			exec("/usr/bin/ffmpeg -i ".$uploadLocation.$filename." -vcodec libx264 -b 1200k -r 25 -s ".$vidsize." ".$convertedLocation.$convname." 2>&1");
+			exec("/usr/bin/ffmpeg -i ".$uploadLocation.$filename." -vcodec libx264 -b ".$brate." -r ".$frate." -s ".$vidsize." ".$convertedLocation.$convname." 2>&1");
 			if (file_exists("converted/" . $convname))
 			{
 				if(unlink("upload/" . $filename)) echo '<br />'; echo ("Deleted the uploaded source file: " . $filename);
@@ -78,6 +80,21 @@ if (isset($_POST['submit']))
 				<select name="vidsize">
 					<option value="320x480" selected="selected">Portrait (320x480)</option>
 					<option value="480x320">Landscape (480x320)</option>
+				</select>
+			</div>
+			<div class="fieldset">
+				<label for="file">Framerate:</label>
+				<select name="frate">
+					<option value="25" selected="selected">Default 25fps</option>
+					<option value="30">30fps</option>
+				</select>
+			</div>
+			<div class="fieldset">
+				<label for="file">Bitrate:</label>
+				<select name="brate">
+					<option value="1200" selected="selected">Default 1.2mb</option>
+					<option value="2000">High 2.0mb</option>
+					<option value="700">Low 700kb</option>
 				</select>
 			</div>
 			<input id="Submit" name="submit" type="submit" value="Submit" />
