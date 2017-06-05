@@ -37,7 +37,13 @@ if (isset($_POST['submit']))
 			if (file_exists("converted/" . $convname))
 			{
 				if(unlink("upload/" . $filename)) echo '<br />'; echo ("Deleted the uploaded source file: " . $filename);
-				echo '<br /><a href="converted/'.$convname.'" target="_blank"> Download Video</a><br />';
+				//force download
+				header("Content-disposition: attachment; filename='.$convname.'");
+				header("Content-type: video/mp4");
+				readfile($convertedLocation . $convname)
+				//end force download
+				
+				echo '<br /><a href="converted/'.$convname.'"> Download Video</a><br />';
 			}			
 			
 		}
