@@ -3,11 +3,6 @@
 <?php
 
 // Upload and Rename File
-//force download
-header("Content-disposition: attachment; filename='.$convname.'");
-header("Content-type: video/mp4");
-readfile($convertedLocation . $convname)
-//end force download
 
 if (isset($_POST['submit']))
 {
