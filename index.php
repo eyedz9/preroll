@@ -14,7 +14,6 @@ if (isset($_POST['submit']))
 	$ffmpegCommand = '/usr/bin/ffmpeg';
 	$uploadLocation = 'upload/';
 	$convertedLocation = 'converted/';
-	$direct_text = 'Deleted source file';
 		
 		if (in_array($file_ext,$allowed_file_types) && ($filesize < 20000000))
 	{	
@@ -30,12 +29,12 @@ if (isset($_POST['submit']))
 		{		
 			
 			move_uploaded_file($_FILES["file"]["tmp_name"], "upload/" . $filename);
-			echo $uploadLocation, $filename;
+			echo ("Conversion of " .$uploadLocation.$filename. "starting.");
 			exec("/usr/bin/ffmpeg -i ".$uploadLocation.$filename." -r 25 -s 320x480 ".$convertedLocation.$filename." 2>&1");
 			if (file_exists("converted/" . $filename))
 			{
+				if(unlink("upload/" . $filename)) echo ("Deleted the uploaded source file: " . $filename);
 				echo '<br /><a href="converted/'.$filename.'">Download Video</a><br />';
-				if(unlink("upload/" . $filename)) echo ("deleted " . $filename);
 			}			
 			
 		}
