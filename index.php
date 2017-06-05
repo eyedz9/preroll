@@ -37,7 +37,7 @@ if (isset($_POST['submit']))
 			
 			move_uploaded_file($_FILES["file"]["tmp_name"], "upload/" . $filename);
 			echo ("Upload and Conversion of " .$filename. " is complete.");
-			exec("/usr/bin/ffmpeg -i ".$uploadLocation.$filename." -c:v libx264 -crf 9 -r 25 -s ".$vidsize." ".$convertedLocation.$convname." 2>&1");
+			exec("/usr/bin/ffmpeg -i ".$uploadLocation.$filename." -vcodec libx264 -b 1200k -r 25 -s ".$vidsize." ".$convertedLocation.$convname." 2>&1");
 			if (file_exists("converted/" . $convname))
 			{
 				if(unlink("upload/" . $filename)) echo '<br />'; echo ("Deleted the uploaded source file: " . $filename);
