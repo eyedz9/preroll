@@ -18,6 +18,8 @@ if (isset($_POST['submit']))
 	$convname = $today . $spacer . $vidsize . $spacer . $filename;
 	$vidext = '.mp4';
 	$loading = '/img/loading.gif';
+	
+	echo ($filename . $file_basename . $file_ext . $filesize);
 		
 		if (in_array($file_ext,$allowed_file_types))//&& ($filesize < 200000000)
 	{	
@@ -33,7 +35,7 @@ if (isset($_POST['submit']))
 		{		
 			
 			move_uploaded_file($_FILES["file"]["tmp_name"], "upload/" . $filename);
-			echo ("Upload and Conversion of " .$file_basename. " is complete.");
+			echo ("Upload and Conversion of " .$filename. " is complete.");
 			exec("/usr/bin/ffmpeg -i ".$uploadLocation.$filename." -r 25 -s ".$vidsize." ".$convertedLocation.$convname." 2>&1");
 			if (file_exists("converted/" . $convname))
 			{
