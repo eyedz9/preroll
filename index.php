@@ -33,22 +33,27 @@ if (isset($_POST['submit']))
 		else
 		{		
 			move_uploaded_file($_FILES["file"]["tmp_name"], "upload/" . $filename);
+		}
+		if (file_exists($uploadLocation . $filename))
+		{
 			echo ("Upload of " .$filename. " is complete.");
+		}
+		if (file_exists($uploadLocation . $filename))
+		{
+			echo ("Conversion of " .$filename. "has started");
+		}
+		if (file_exists($uploadLocation . $filename))
+		{
+			exec("/usr/bin/ffmpeg -i ".$uploadLocation.$filename." -r 25 -s ".$vidsize." ".$convertedLocation.$convname." 2>&1");
+		}
+
+		if (file_exists("converted/" . $convname))
+		{
+			if(unlink("upload/" . $filename)) echo '<br />'; echo ("Deleted the uploaded source file: " . $filename);
+			echo '<br /><a href="converted/'.$convname.'"> Download Video</a><br />';
 		}
 	}
 	
-	if (file_exists($uploadLocation . $filename))
-	{
-		echo ("Conversion of " .$filename. "has started");
-		exec("/usr/bin/ffmpeg -i ".$uploadLocation.$filename." -r 25 -s ".$vidsize." ".$convertedLocation.$convname." 2>&1");
-	}
-	
-	if (file_exists("converted/" . $convname))
-	{
-		if(unlink("upload/" . $filename)) echo '<br />'; echo ("Deleted the uploaded source file: " . $filename);
-		echo '<br /><a href="converted/'.$convname.'"> Download Video</a><br />';
-	}
-
 	elseif (empty($file_basename))
 	{	
 		// file selection error
