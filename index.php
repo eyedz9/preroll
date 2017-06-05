@@ -16,7 +16,7 @@ if (isset($_POST['submit']))
 	$convertedLocation = 'converted/';
 	$vidsize = $_POST['vidsize'];
 	$spacer = '_';
-	$today = date("Y-m-d H:i:s");
+	$today = date("Y_m_d_His");
 	$convname = $today . $spacer . $vidsize . $spacer . $filename;
 		
 		if (in_array($file_ext,$allowed_file_types) && ($filesize < 20000000))
