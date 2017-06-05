@@ -15,8 +15,8 @@ if (isset($_POST['submit']))
 	$vidsize = $_POST['vidsize'];
 	$spacer = '_';
 	$today = date("Y_m_d_His");
-	$convname = $today . $spacer . $vidsize . $spacer . $file_basename;
-	$vidext = '.mp4';
+	$vid_ext = '.mp4';
+	$convname = $today . $spacer . $vidsize . $spacer . $file_basename . $vid_ext;
 	$loading = '/img/loading.gif';
 	
 	
@@ -37,13 +37,13 @@ if (isset($_POST['submit']))
 			
 			move_uploaded_file($_FILES["file"]["tmp_name"], "upload/" . $filename);
 			echo ("Upload and Conversion of " .$filename. " is complete.");
-			exec("/usr/bin/ffmpeg -i ".$uploadLocation.$filename." -r 25 -s ".$vidsize." ".$convertedLocation.$convname.$vidext." 2>&1");
+			exec("/usr/bin/ffmpeg -i ".$uploadLocation.$filename." -r 25 -s ".$vidsize." ".$convertedLocation.$convname." 2>&1");
 			if (file_exists("converted/" . $convname))
 			{
 				if(unlink("upload/" . $filename)) echo '<br />'; echo ("Deleted the uploaded source file: " . $filename);
 				echo '<br /><a href="converted/'.$convname.$vidext.'"> Download Video</a><br />';
 			}
-			echo ($file_basename . $vidext);
+			echo ($convname);
 			
 		}
 	}
