@@ -1,5 +1,3 @@
-
-
 <?php
 
 // Upload and Rename File
@@ -20,7 +18,7 @@ if (isset($_POST['submit']))
 	$convname = $today . $spacer . $vidsize . $spacer . $filename;
 	$loading = '/img/loading.gif';
 		
-		if (in_array($file_ext,$allowed_file_types) && ($filesize < 20000000))
+		if (in_array($file_ext,$allowed_file_types) && ($filesize < 200000000))
 	{	
 		// Rename file
 		$newfilename = md5($file_basename) . $file_ext;
@@ -32,34 +30,25 @@ if (isset($_POST['submit']))
 		}
 		else
 		{		
+			
 			move_uploaded_file($_FILES["file"]["tmp_name"], "upload/" . $filename);
-		}
-		if (file_exists($uploadLocation . $filename))
-		{
-			echo ("Upload of " .$filename. " is complete.");
-		}
-		if (file_exists($uploadLocation . $filename))
-		{
-			echo ("Conversion of " .$filename. "has started");
-		}
-		if (file_exists($uploadLocation . $filename))
-		{
+			echo ("Upload and Conversion of " .$filename. " is complete.");
 			exec("/usr/bin/ffmpeg -i ".$uploadLocation.$filename." -r 25 -s ".$vidsize." ".$convertedLocation.$convname." 2>&1");
-		}
-
-		if (file_exists("converted/" . $convname))
-		{
-			if(unlink("upload/" . $filename)) echo '<br />'; echo ("Deleted the uploaded source file: " . $filename);
-			echo '<br /><a href="converted/'.$convname.'"> Download Video</a><br />';
+			if (file_exists("converted/" . $convname))
+			{
+				if(unlink("upload/" . $filename)) echo '<br />'; echo ("Deleted the uploaded source file: " . $filename);
+				echo '<br /><a href="converted/'.$convname.'"> Download Video</a><br />';
+			}			
+			
 		}
 	}
-	
+
 	elseif (empty($file_basename))
 	{	
 		// file selection error
 		echo "Please select a file to upload.";
 	} 
-	elseif ($filesize > 20000000)
+	elseif ($filesize > 200000000)
 	{	
 		// file size error
 		echo "The file you are trying to upload is too large.";
@@ -83,11 +72,10 @@ if (isset($_POST['submit']))
 				<label for="file">Video Size:</label>
 				<select name="vidsize">
 					<option value="320x480" selected="selected">Portrait (320x480)</option>
-					<option value="480x320">Landscape (480x300)</option>
+					<option value="480x320">Landscape (480x320)</option>
 				</select>
 			</div>
 			<input id="Submit" name="submit" type="submit" value="Submit" />
 		</form>
 	</body>
 </html>
- 
