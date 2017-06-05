@@ -13,8 +13,8 @@ if (isset($_POST['submit']))
 	$uploadLocation = 'upload/';
 	$convertedLocation = 'converted/';
 	$vidsize = $_POST['vidsize'];
-	$frate = $_POST['frate'];
-	$brate = $_POST['brate'];
+	//$frate = $_POST['frate'];
+	//$brate = $_POST['brate'];
 	$spacer = '_';
 	$today = date("Y_m_d_His");
 	$vid_ext = '.mp4';
@@ -82,7 +82,7 @@ if (isset($_POST['submit']))
 					<option value="480x320">Landscape (480x320)</option>
 				</select>
 			</div>
-			<div class="fieldset">
+			<!--<div class="fieldset">
 				<label for="file">Framerate:</label>
 				<select name="frate">
 					<option value="25" selected="selected">Default 25fps</option>
@@ -96,7 +96,7 @@ if (isset($_POST['submit']))
 					<option value="2000">High 2.0mb</option>
 					<option value="700">Low 700kb</option>
 				</select>
-			</div>
+			</div>-->
 			<input id="Submit" name="submit" type="submit" value="Submit" />
 		</form>
 	</body>
