@@ -18,6 +18,7 @@ if (isset($_POST['submit']))
 	$spacer = '_';
 	$today = date("Y_m_d_His");
 	$convname = $today . $spacer . $vidsize . $spacer . $filename;
+	$loading = '/img/loading.gif';
 		
 		if (in_array($file_ext,$allowed_file_types) && ($filesize < 20000000))
 	{	
@@ -31,17 +32,18 @@ if (isset($_POST['submit']))
 		}
 		else
 		{		
-			
 			move_uploaded_file($_FILES["file"]["tmp_name"], "upload/" . $filename);
-			echo ("Upload and Conversion of " .$filename. " is complete.");
-			exec("/usr/bin/ffmpeg -i ".$uploadLocation.$filename." -r 25 -s ".$vidsize." ".$convertedLocation.$convname." 2>&1");
-			if (file_exists("converted/" . $convname))
-			{
+			echo ("Upload of " .$filename. " is complete.");
+
+			if (file_exists($uploadLocation . $filename)) {
+				echo ("Conversion of " .$filename. "has started");
+				exec("/usr/bin/ffmpeg -i ".$uploadLocation.$filename." -r 25 -s ".$vidsize." ".$convertedLocation.$convname." 2>&1");
+			}
+			if (file_exists("converted/" . $convname)) {
 				if(unlink("upload/" . $filename)) echo '<br />'; echo ("Deleted the uploaded source file: " . $filename);
 				echo '<br /><a href="converted/'.$convname.'"> Download Video</a><br />';
-			}			
-			
-		}
+			}
+		}		
 	}
 
 	elseif (empty($file_basename))
