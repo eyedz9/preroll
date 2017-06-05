@@ -79,7 +79,7 @@ if (isset($_POST['submit']))
 				<label for="file">Video Size:</label>
 				<select name="vidsize">
 					<option value="320x480" selected="selected">Portrait (320x480)</option>
-					<option value="480x320">Landscape (480x320)</option>
+					<option value="1024x768">Landscape (480x320)</option>
 				</select>
 			</div>
 			<!--<div class="fieldset">
