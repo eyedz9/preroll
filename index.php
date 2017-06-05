@@ -48,11 +48,11 @@ if (isset($_POST['submit']))
 		// file selection error
 		echo "Please select a file to upload.";
 	} 
-	elseif ($filesize > 200000000)
-	{	
+	//elseif ($filesize > 200000000)
+	//{	
 		// file size error
-		echo "The file you are trying to upload is too large.";
-	}
+		//echo "The file you are trying to upload is too large.";
+	//}
 	else
 	{
 		// file type error
