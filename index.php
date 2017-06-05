@@ -37,30 +37,7 @@ if (isset($_POST['submit']))
 			if (file_exists("converted/" . $convname))
 			{
 				if(unlink("upload/" . $filename)) echo '<br />'; echo ("Deleted the uploaded source file: " . $filename);
-				echo '<br /><a href="converted/'.$convname.'"> Download Video</a><br />';
-			}			
-			
-		}
-	}
-
-	elseif (empty($file_basename))
-	{	
-		// file selection error
-		echo "Please select a file to upload.";
-	} 
-	elseif ($filesize > 20000000)
-	{	
-		// file size error
-		echo "The file you are trying to upload is too large.";
-	}
-	else
-	{
-		// file type error
-		echo "Only these file typs are allowed for upload: " . implode(', ',$allowed_file_types);
-		unlink($_FILES["file"]["tmp_name"]);
-	}
-}
-//
+				//
 function force_download($file)
 {
     $ext = explode(".", $file);
@@ -128,6 +105,29 @@ function force_download($file)
     readfile($file);
 }
 //
+				echo '<br /><a href="converted/'.$convname.'"> Download Video</a><br />';
+			}			
+			
+		}
+	}
+
+	elseif (empty($file_basename))
+	{	
+		// file selection error
+		echo "Please select a file to upload.";
+	} 
+	elseif ($filesize > 20000000)
+	{	
+		// file size error
+		echo "The file you are trying to upload is too large.";
+	}
+	else
+	{
+		// file type error
+		echo "Only these file typs are allowed for upload: " . implode(', ',$allowed_file_types);
+		unlink($_FILES["file"]["tmp_name"]);
+	}
+}
 ?>
 <html>
 <head>
