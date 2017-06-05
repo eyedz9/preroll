@@ -18,7 +18,7 @@ if (isset($_POST['submit']))
 	$convname = $today . $spacer . $vidsize . $spacer . $filename;
 	$loading = '/img/loading.gif';
 		
-		if (in_array($file_ext,$allowed_file_types) && ($filesize < 200000000))
+		if (in_array($file_ext,$allowed_file_types))//&& ($filesize < 200000000)
 	{	
 		// Rename file
 		$newfilename = md5($file_basename) . $file_ext;
