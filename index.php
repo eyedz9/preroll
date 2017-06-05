@@ -14,6 +14,7 @@ if (isset($_POST['submit']))
 	$ffmpegCommand = '/usr/bin/ffmpeg';
 	$uploadLocation = 'upload/';
 	$convertedLocation = 'converted/';
+	$direct_text = 'Deleted source file ';
 		
 		if (in_array($file_ext,$allowed_file_types) && ($filesize < 20000000))
 	{	
@@ -34,7 +35,7 @@ if (isset($_POST['submit']))
 			if (file_exists("converted/" . $filename))
 			{
 				echo '<br /><a href="converted/'.$filename.'">Download Video</a>';
-				if(unlink("upload/" . $filename)) echo 'Deleted file $filename';
+				if(unlink("upload/" . $filename)) echo ($direct_source . $filename);
 			}			
 			
 		}
