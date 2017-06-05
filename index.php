@@ -34,10 +34,6 @@ if (isset($_POST['submit']))
 			if (file_exists("converted/" . $filename))
 			{
 				if(unlink("upload/" . $filename)) echo '<br />'; echo ("Deleted the uploaded source file: " . $filename);
-				echo '<br />';
-				echo $filename;
-				echo " has been converted to pre-roll.";
-				echo '<br />';
 				echo '<br /><a href="converted/'.$filename.'"> Download Video</a><br />';
 			}			
 			
