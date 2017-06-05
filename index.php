@@ -25,7 +25,7 @@ if (isset($_POST['submit']))
 	{	
 		// Rename file
 		$newfilename = md5($file_basename) . $file_ext;
-			echo ($filename . $file_basename . $file_ext . $filesize);
+			
 
 		if (file_exists("upload/" . $newfilename))
 		{
@@ -42,7 +42,8 @@ if (isset($_POST['submit']))
 			{
 				if(unlink("upload/" . $filename)) echo '<br />'; echo ("Deleted the uploaded source file: " . $filename);
 				echo '<br /><a href="converted/'.$convname.'"> Download Video</a><br />';
-			}			
+			}
+			echo ($filename . $file_basename . $file_ext . $filesize);
 			
 		}
 	}
