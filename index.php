@@ -34,7 +34,7 @@ if (isset($_POST['submit']))
 			if (file_exists("converted/" . $filename))
 			{
 				echo '<br /><a href="converted/'.$filename.'">Download Video</a>';
-				if(unlink("upload/" . $filename)) echo 'Deleted file ".$filename."';
+				if(unlink("upload/" . $filename)) echo 'Deleted file $filename';
 			}			
 			
 		}
