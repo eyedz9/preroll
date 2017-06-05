@@ -19,12 +19,13 @@ if (isset($_POST['submit']))
 	$vidext = '.mp4';
 	$loading = '/img/loading.gif';
 	
-	echo ($filename . $file_basename . $file_ext . $filesize);
+	
 		
 		if (in_array($file_ext,$allowed_file_types))//&& ($filesize < 200000000)
 	{	
 		// Rename file
 		$newfilename = md5($file_basename) . $file_ext;
+			echo ($filename . $file_basename . $file_ext . $filesize);
 
 		if (file_exists("upload/" . $newfilename))
 		{
