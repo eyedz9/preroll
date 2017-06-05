@@ -29,11 +29,11 @@ if (isset($_POST['submit']))
 		{		
 			
 			move_uploaded_file($_FILES["file"]["tmp_name"], "upload/" . $filename);
-			echo ("Conversion of " .$filename. " starting.");
+			echo ("Upload and Conversion of " .$filename. " is complete.");
 			exec("/usr/bin/ffmpeg -i ".$uploadLocation.$filename." -r 25 -s 320x480 ".$convertedLocation.$filename." 2>&1");
 			if (file_exists("converted/" . $filename))
 			{
-				if(unlink("upload/" . $filename)) echo ("Deleted the uploaded source file: " . $filename);
+				if(unlink("upload/" . $filename)) echo '<br />'; echo ("Deleted the uploaded source file: " . $filename);
 				echo '<br />';
 				echo $filename;
 				echo " has been converted to pre-roll.";
