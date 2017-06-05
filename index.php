@@ -43,7 +43,7 @@ if (isset($_POST['submit']))
 				if(unlink("upload/" . $filename)) echo '<br />'; echo ("Deleted the uploaded source file: " . $filename);
 				echo '<br /><a href="converted/'.$convname.$vidext.'"> Download Video</a><br />';
 			}
-			echo ($filename . $file_basename . $file_ext . $filesize);
+			echo ($file_basename . $vidext);
 			
 		}
 	}
