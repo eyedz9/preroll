@@ -99,7 +99,7 @@ if (isset($_POST['submit']))
 				{
 					echo '<div class="row"><div class="col-md-6 com-md-offset-3">';
 					echo '<div class="alert alert-danger"><p>Deleted the uploaded source file: ' . $filename .'</p></div>';
-					echo '<div class="alert alert-success"><a href="converted/'.$convname.$vidext.'">'.$convname.'</a></div>';
+					echo '<div class="alert alert-success"><h4>Pre-roll video ready for downlod</h4><p>Filename: '.$convname.' <a href="converted/'.$convname.$vidext.'" class="btn btn lg btn success">Download Video</a></div>';
 					echo '</div></div>';
 				}
 					//echo ("Deleted the uploaded source file: " . $filename);
