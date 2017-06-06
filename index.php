@@ -80,9 +80,10 @@ if (isset($_POST['submit']))
 			<div class="row">
 				<div class="col-md-4 col-md-offset-4">
 					<form action="" enctype="multipart/form-data" method="post">
-						
+						<div class="form-group">
+							<label>Select Video:</label>
 							<input id="file" name="file" type="file" class="form-control" />
-						
+						</div>
 						<div class="form-group">
 							<label>Video Size:</label>
 							<select class="form-control" name="vidsize">
@@ -102,12 +103,13 @@ if (isset($_POST['submit']))
 					{
 						echo '<div class="row"><div class="col-md-4 col-md-offset-4">';
 						echo '<div class="alert alert-danger"><p>Deleted the uploaded source file: ' . $filename .'</p></div>';
-						echo '<div class="alert alert-success"><h4>Pre-roll video ready for downlod</h4><p>Filename: '.$convname.' <a href="converted/'.$convname.$vidext.'" class="btn btn-lg btn-info">Download Video</a></div>';
+						echo '<div class="alert alert-success">
+							<h4>Pre-roll video ready for downlod</h4>
+							<video controls preload=metadata width=320 height=480 style="background: #000 !important;" class="center-block">
+								<source src="converted/'.$convname.$vidext.'" type="video/mp4">
+							</video>
+							<p>Filename: '.$convname.' <a href="converted/'.$convname.$vidext.'" class="btn btn-lg btn-info center-block">Download Video</a></div>';
 						echo '</div></div>';
-						echo '<video controls preload=metadata width=320 height=480 style="background: #000 !important;" >
-							<source src="converted/'.$convname.$vidext.'" type="video/mp4">
-						</video>';
-
 						
 						//echo '<br /><img src="'.$convertedLocation.$vidthumb.'" /><br />';
 					}
