@@ -85,6 +85,7 @@ if (isset($_POST['submit']))
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 </head>
 	<body>
+		<div class="contianer">
 		<form action="" enctype="multipart/form-data" method="post">
 			<input id="file" name="file" type="file" />
 			<div class="fieldset">
@@ -97,8 +98,10 @@ if (isset($_POST['submit']))
 			
 			<input id="Submit" name="submit" type="submit" value="Submit" />
 		</form>
-		<?php echo '<div class-"contianer"><div class="jumbotron"><h3>Download Pre-roll video</h3><a href="converted/'.$convname.$vidext.'">'.$convname.'</a></div>'; ?>
-		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<?php 
+			echo '<div class="jumbotron"><h3>Download Pre-roll video</h3><a href="converted/'.$convname.$vidext.'">'.$convname.'</a></div>'; ?>
+		</div>
+			<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <!-- Latest compiled and minified JavaScript -->
