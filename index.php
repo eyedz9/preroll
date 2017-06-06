@@ -45,9 +45,9 @@ if (isset($_POST['submit']))
 			if (file_exists("converted/" . $convname))
 			{
 				if(unlink("upload/" . $filename)) echo '<br />'; echo ("Deleted the uploaded source file: " . $filename);
-				exec("/usr/bin/ffmpeg -ss 0.10 -i ".$convertedLocation.$convname." -t 1 -aspect 16:9 -f image2 -s 320x480 ".$convertedLocation.$vidthumb."");
-				echo '<br /><img src="'.$convertedLocation.$vidthumb.'" /><br />';
-				echo '<br /><h3>Download Pre-roll video</h3><br /><a href="converted/'.$convname.$vidext.'">'.$convname.'</a><br />';
+				//exec("/usr/bin/ffmpeg -ss 0.10 -i ".$convertedLocation.$convname." -t 1 -aspect 16:9 -f image2 -s 320x480 ".$convertedLocation.$vidthumb."");
+				//echo '<br /><img src="'.$convertedLocation.$vidthumb.'" /><br />';
+				echo '<h3>Download Pre-roll video</h3><br /><a href="converted/'.$convname.$vidext.'">'.$convname.'</a><br /></br>';
 			}
 			
 			
