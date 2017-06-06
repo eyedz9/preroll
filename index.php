@@ -77,7 +77,7 @@ if (isset($_POST['submit']))
 </head>
 	<body>
 		<div class="contianer" style="padding-top: 2em;">
-			<div class="row">
+			<div class="row" style="margin-bottom: 1em;">
 				<div class="col-md-4 col-md-offset-4">
 					<form action="" enctype="multipart/form-data" method="post">
 						<div class="form-group">
