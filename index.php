@@ -21,7 +21,7 @@ if (isset($_POST['submit']))
 	$convname = $today . $spacer . $vidsize . $spacer . $file_basename . $vid_ext;
 	$loading = '/img/loading.gif';
 	$thumbext = '.jpg';
-	$vidthumb = $today . $file_basename . $thumbext;
+	$vidthumb = $today . $spacer . $vidsize . $spacer . $file_basename . $thumbext;
 	
 	
 		
