@@ -103,7 +103,7 @@ if (isset($_POST['submit']))
 				</div>
 			</div>
 		<?php 
-			echo '<div class="jumbotron"><h3>Download Pre-roll video</h3><a href="converted/'.$convname.$vidext.'">'.$convname.'</a></div>'; ?>
+			echo '<div class="alert alert-success"><h3>Download Pre-roll video</h3><a href="converted/'.$convname.$vidext.'">'.$convname.'</a></div>'; ?>
 		</div>
 			<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
