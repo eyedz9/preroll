@@ -86,6 +86,8 @@ if (isset($_POST['submit']))
 </head>
 	<body>
 		<div class="contianer">
+			<div class="row">
+				<div class="col-md-6 col-md-offset-6">
 		<form action="" enctype="multipart/form-data" method="post">
 			<input id="file" name="file" type="file" />
 			<div class="fieldset">
@@ -98,6 +100,8 @@ if (isset($_POST['submit']))
 			
 			<input id="Submit" name="submit" type="submit" value="Submit" />
 		</form>
+				</div>
+			</div>
 		<?php 
 			echo '<div class="jumbotron"><h3>Download Pre-roll video</h3><a href="converted/'.$convname.$vidext.'">'.$convname.'</a></div>'; ?>
 		</div>
