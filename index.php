@@ -78,17 +78,19 @@ if (isset($_POST['submit']))
 		<div class="contianer">
 			<div class="row">
 				<div class="col-md-6 col-md-offset-6">
-		<form action="" enctype="multipart/form-data" method="post">
-			<input id="file" name="file" type="file" />
-			<div class="fieldset">
-				<label for="file">Video Size:</label>
-				<select name="vidsize">
-					<option value="320x480" selected="selected">Portrait (320x480)</option>
-					<option value="480x320">Landscape (480x320)</option>
-				</select>
-			</div>
+					<form action="" enctype="multipart/form-data" method="post">
+						<div class="form-group">
+							<input id="file" name="file" type="file" class="form-control" />
+						</div>
+						<div class="form-group">
+							<label>Video Size:</label>
+							<select class="form-control" name="vidsize">
+								<option value="320x480" selected="selected">Portrait (320x480)</option>
+								<option value="480x320">Landscape (480x320)</option>
+							</select>
+						</div>
 			
-			<input id="Submit" name="submit" type="submit" value="Submit" />
+			<input id="Submit" name="submit" type="submit" value="Submit" class="btn btn-primary" />
 		</form>
 				</div>
 			</div>
