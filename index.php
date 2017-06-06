@@ -39,7 +39,7 @@ if (isset($_POST['submit']))
 		else
 		{		
 			move_uploaded_file($_FILES["file"]["tmp_name"], "upload/" . $filename);
-			exec("/usr/bin/ffmpeg -i ".$uploadLocation.$filename." -vcodec libx264 -b 900k -r 25 -s ".$vidsize." -aspect 16:9 ".$convertedLocation.$convname." 2>&1");		
+			exec("/usr/bin/ffmpeg -i ".$uploadLocation.$filename." -vcodec libx264 -b 900k -r 25 -s ".$vidsize." ".$convertedLocation.$convname." 2>&1");		
 		}
 	}
 
@@ -97,8 +97,10 @@ if (isset($_POST['submit']))
 			{
 				if(unlink("upload/" . $filename))
 				{
+					echo '<div class="row"><div class="col-md-6 com-md-offset-3">';
 					echo '<div class="alert alert-danger"><p>Deleted the uploaded source file: ' . $filename .'</p></div>';
 					echo '<div class="alert alert-success"><a href="converted/'.$convname.$vidext.'">'.$convname.'</a></div>';
+					echo '</div></div>';
 				}
 					//echo ("Deleted the uploaded source file: " . $filename);
 					//echo '</div>';
