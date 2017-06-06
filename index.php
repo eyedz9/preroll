@@ -46,7 +46,7 @@ if (isset($_POST['submit']))
 			{
 				if(unlink("upload/" . $filename)) echo '<br />'; echo ("Deleted the uploaded source file: " . $filename);
 				
-				echo '<img src="imagefile.jpg" />';
+				echo '<br /><img src="'.$convertedLocation.$vidthumb.'" /><br />';
 				echo '<br /><a href="converted/'.$convname.$vidext.'"> Download Pre-roll '.$convname.'</a><br />';
 			}
 			
