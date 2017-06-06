@@ -20,6 +20,8 @@ if (isset($_POST['submit']))
 	$vid_ext = '.mp4';
 	$convname = $today . $spacer . $vidsize . $spacer . $file_basename . $vid_ext;
 	$loading = '/img/loading.gif';
+	$thumbext = '.jpg';
+	$vidthumb = $today . $file_basename . $thumbext;
 	
 	
 		
@@ -38,11 +40,12 @@ if (isset($_POST['submit']))
 		{		
 			
 			move_uploaded_file($_FILES["file"]["tmp_name"], "upload/" . $filename);
+			exec("usr/bin/ffmpeg -ss 0.5 -i ".$uploadLocation.$filename." -t 1 -s ".$vidsize." -f image2 ".$convertedLocation.$vidthumb."");
 			exec("/usr/bin/ffmpeg -i ".$uploadLocation.$filename." -vcodec libx264 -b 900k -r 25 -s ".$vidsize." ".$convertedLocation.$convname." 2>&1");
 			if (file_exists("converted/" . $convname))
 			{
 				if(unlink("upload/" . $filename)) echo '<br />'; echo ("Deleted the uploaded source file: " . $filename);
-				exec("usr/bin/ffmpeg -ss 0.5 -i ".$convertedLocation.$convname." -t 1 -s ".$vidsize." -f image2 imagefile.jpg");
+				
 				echo '<img src="imagefile.jpg" />';
 				echo '<br /><a href="converted/'.$convname.$vidext.'"> Download Pre-roll '.$convname.'</a><br />';
 			}
