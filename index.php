@@ -39,7 +39,8 @@ if (isset($_POST['submit']))
 		else
 		{		
 			move_uploaded_file($_FILES["file"]["tmp_name"], "upload/" . $filename);
-			exec("/usr/bin/ffmpeg -i ".$uploadLocation.$filename." -vcodec libx264 -b 900k -r 25 -s ".$vidsize." ".$convertedLocation.$convname." 2>&1");		
+			exec("/usr/bin/ffmpeg -i ".$uploadLocation.$filename." -vcodec libx264 -b 900k -r 25 -s ".$vidsize." ".$convertedLocation.$convname." 2>&1");	
+			exec("/usr/bin/ffmpeg -ss 0.10 -i ".$uploadLocation.$filename." -t 1 -aspect 16:9 -s 320x480 -f image2 ".$convertedLocation.$vidthumb."");
 		}
 	}
 
@@ -103,7 +104,7 @@ if (isset($_POST['submit']))
 						echo '<div class="alert alert-danger"><p>Deleted the uploaded source file: ' . $filename .'</p></div>';
 						echo '<div class="alert alert-success"><h4>Pre-roll video ready for downlod</h4><p>Filename: '.$convname.' <a href="converted/'.$convname.$vidext.'" class="btn btn-lg btn-info">Download Video</a></div>';
 						echo '</div></div>';
-						exec("/usr/bin/ffmpeg -ss 0.10 -i ".$convertedLocation.$convname." -t 1 -aspect 16:9 -f image2 ".$convertedLocation.$vidthumb."");
+						
 						echo '<br /><img src="'.$convertedLocation.$vidthumb.'" /><br />';
 					}
 						//echo ("Deleted the uploaded source file: " . $filename);
