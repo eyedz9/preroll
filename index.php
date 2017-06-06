@@ -77,11 +77,11 @@ if (isset($_POST['submit']))
 	<body>
 		<div class="contianer">
 			<div class="row">
-				<div class="col-md-6 col-md-offset-6">
+				<div class="col-md-6 col-md-offset-3">
 					<form action="" enctype="multipart/form-data" method="post">
-						<div class="form-group">
+						
 							<input id="file" name="file" type="file" class="form-control" />
-						</div>
+						
 						<div class="form-group">
 							<label>Video Size:</label>
 							<select class="form-control" name="vidsize">
