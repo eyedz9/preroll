@@ -38,18 +38,8 @@ if (isset($_POST['submit']))
 		}
 		else
 		{		
-			
 			move_uploaded_file($_FILES["file"]["tmp_name"], "upload/" . $filename);
-			
-			exec("/usr/bin/ffmpeg -i ".$uploadLocation.$filename." -vcodec libx264 -b 900k -r 25 -s ".$vidsize." -aspect 16:9 ".$convertedLocation.$convname." 2>&1");
-			if (file_exists("converted/" . $convname))
-			{
-				if(unlink("upload/" . $filename)) echo '<br />'; echo ("Deleted the uploaded source file: " . $filename);
-				//exec("/usr/bin/ffmpeg -ss 0.10 -i ".$convertedLocation.$convname." -t 1 -aspect 16:9 -f image2 -s 320x480 ".$convertedLocation.$vidthumb."");
-				//echo '<br /><img src="'.$convertedLocation.$vidthumb.'" /><br />';
-			}
-			
-			
+			exec("/usr/bin/ffmpeg -i ".$uploadLocation.$filename." -vcodec libx264 -b 900k -r 25 -s ".$vidsize." -aspect 16:9 ".$convertedLocation.$convname." 2>&1");		
 		}
 	}
 
@@ -103,7 +93,14 @@ if (isset($_POST['submit']))
 				</div>
 			</div>
 		<?php 
-			echo '<div class="alert alert-success"><h3>Download Pre-roll video</h3><a href="converted/'.$convname.$vidext.'">'.$convname.'</a></div>'; ?>
+			if (file_exists("converted/" . $convname))
+			{
+				if(unlink("upload/" . $filename)) echo '<div class="alert alert-danger">'; echo ("Deleted the uploaded source file: " . $filename); echo '</div>';
+				echo '<div class="alert alert-success"><h3>Download Pre-roll video</h3><a href="converted/'.$convname.$vidext.'">'.$convname.'</a></div>';
+				//exec("/usr/bin/ffmpeg -ss 0.10 -i ".$convertedLocation.$convname." -t 1 -aspect 16:9 -f image2 -s 320x480 ".$convertedLocation.$vidthumb."");
+				//echo '<br /><img src="'.$convertedLocation.$vidthumb.'" /><br />';
+			}
+		 ?>
 		</div>
 			<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
