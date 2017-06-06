@@ -47,7 +47,6 @@ if (isset($_POST['submit']))
 				if(unlink("upload/" . $filename)) echo '<br />'; echo ("Deleted the uploaded source file: " . $filename);
 				//exec("/usr/bin/ffmpeg -ss 0.10 -i ".$convertedLocation.$convname." -t 1 -aspect 16:9 -f image2 -s 320x480 ".$convertedLocation.$vidthumb."");
 				//echo '<br /><img src="'.$convertedLocation.$vidthumb.'" /><br />';
-				echo '<h3>Download Pre-roll video</h3><br /><a href="converted/'.$convname.$vidext.'">'.$convname.'</a><br /></br>';
 			}
 			
 			
@@ -95,23 +94,10 @@ if (isset($_POST['submit']))
 					<option value="480x320">Landscape (480x320)</option>
 				</select>
 			</div>
-			<!--<div class="fieldset">
-				<label for="file">Framerate:</label>
-				<select name="frate">
-					<option value="25" selected="selected">Default 25fps</option>
-					<option value="30">30fps</option>
-				</select>
-			</div>
-			<div class="fieldset">
-				<label for="file">Bitrate:</label>
-				<select name="brate">
-					<option value="1200" selected="selected">Default 1.2mb</option>
-					<option value="2000">High 2.0mb</option>
-					<option value="700">Low 700kb</option>
-				</select>
-			</div>-->
+			
 			<input id="Submit" name="submit" type="submit" value="Submit" />
 		</form>
+		<?php echo '<div class-"contianer"><div class="jumbotron"><h3>Download Pre-roll video</h3><a href="converted/'.$convname.$vidext.'">'.$convname.'</a></div>'; ?>
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
