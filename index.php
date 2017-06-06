@@ -40,7 +40,7 @@ if (isset($_POST['submit']))
 		{		
 			
 			move_uploaded_file($_FILES["file"]["tmp_name"], "upload/" . $filename);
-			exec("/usr/bin/ffmpeg -ss 0.10 -i ".$convertedLocation.$filename." -t 1 -s ".$vidsize." -f image2 ".$convertedLocation.$vidthumb."");
+			exec("/usr/bin/ffmpeg -ss 0.10 -i ".$convertedLocation.$convname." -t 1 -s ".$vidsize." -f image2 ".$convertedLocation.$vidthumb."");
 			exec("/usr/bin/ffmpeg -i ".$uploadLocation.$filename." -vcodec libx264 -b 900k -r 25 -s ".$vidsize." ".$convertedLocation.$convname." 2>&1");
 			if (file_exists("converted/" . $convname))
 			{
