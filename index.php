@@ -77,7 +77,7 @@ if (isset($_POST['submit']))
 	<body>
 		<div class="contianer">
 			<div class="row">
-				<div class="col-md-6 col-md-offset-3">
+				<div class="col-md-4 col-md-offset-4">
 					<form action="" enctype="multipart/form-data" method="post">
 						
 							<input id="file" name="file" type="file" class="form-control" />
@@ -90,27 +90,28 @@ if (isset($_POST['submit']))
 							</select>
 						</div>
 			
-			<input id="Submit" name="submit" type="submit" value="Submit" class="btn btn-primary" />
-		</form>
+						<input id="Submit" name="submit" type="submit" value="Submit" class="btn btn-primary" />
+					</form>
 				</div>
 			</div>
-		<?php 
-			if (file_exists("converted/" . $convname))
-			{
-				if(unlink("upload/" . $filename))
+			<?php 
+				if (file_exists("converted/" . $convname))
 				{
-					echo '<div class="row"><div class="col-md-6 col-md-offset-3">';
-					echo '<div class="alert alert-danger"><p>Deleted the uploaded source file: ' . $filename .'</p></div>';
-					echo '<div class="alert alert-success"><h4>Pre-roll video ready for downlod</h4><p>Filename: '.$convname.' <a href="converted/'.$convname.$vidext.'" class="btn btn-lg btn-info">Download Video</a></div>';
-					echo '</div></div>';
-				}
-					//echo ("Deleted the uploaded source file: " . $filename);
-					//echo '</div>';
+					if(unlink("upload/" . $filename))
+					{
+						echo '<div class="row"><div class="col-md-4 col-md-offset-4">';
+						echo '<div class="alert alert-danger"><p>Deleted the uploaded source file: ' . $filename .'</p></div>';
+						echo '<div class="alert alert-success"><h4>Pre-roll video ready for downlod</h4><p>Filename: '.$convname.' <a href="converted/'.$convname.$vidext.'" class="btn btn-lg btn-info">Download Video</a></div>';
+						echo '</div></div>';
+						exec("/usr/bin/ffmpeg -ss 0.10 -i ".$convertedLocation.$convname." -t 1 -aspect 16:9 -f image2 ".$convertedLocation.$vidthumb."");
+						echo '<br /><img src="'.$convertedLocation.$vidthumb.'" /><br />';
+					}
+						//echo ("Deleted the uploaded source file: " . $filename);
+						//echo '</div>';
+
 					
-				//exec("/usr/bin/ffmpeg -ss 0.10 -i ".$convertedLocation.$convname." -t 1 -aspect 16:9 -f image2 -s 320x480 ".$convertedLocation.$vidthumb."");
-				//echo '<br /><img src="'.$convertedLocation.$vidthumb.'" /><br />';
-			}
-		 ?>
+				}
+			 ?>
 		</div>
 			<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
