@@ -90,7 +90,8 @@
 						echo '<div class="alert alert-danger"><p>Deleted the uploaded source file: ' . $filename .'</p></div>';
 						echo '<div class="alert alert-success">
 							<h4>Pre-roll video ready for downlod</h4>
-							<p>Filename: '.$convname.' <a href="converted/'.$convname.$vidext.'" class="btn btn-lg btn-info center-block">Download Video</a></div>';
+							<p>File Name: '.$convname.' <a href="converted/'.$convname.$vidext.'" class="btn btn-lg btn-info center-block">Download Video</a></div>';
+						echo '<p>File Size: '.$filesize.' </p>'
 						echo '</div></div>';
 							
 						if(strcmp($vidsize,'320x480')==0) {
