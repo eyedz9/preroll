@@ -91,7 +91,7 @@
 						echo '<div class="alert alert-success">
 							<h4>Pre-roll video ready for downlod</h4>
 							<p>File Name: '.$convname.' <a href="converted/'.$convname.$vidext.'" class="btn btn-lg btn-info center-block">Download Video</a></div>';
-						echo '<p>File Size: '.$filesize.' </p>'
+						echo '<p>File Size: '.$filesize.' </p>';
 						echo '</div></div>';
 							
 						if(strcmp($vidsize,'320x480')==0) {
