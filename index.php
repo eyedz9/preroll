@@ -105,9 +105,16 @@ if (isset($_POST['submit']))
 						echo '<div class="alert alert-danger"><p>Deleted the uploaded source file: ' . $filename .'</p></div>';
 						echo '<div class="alert alert-success">
 							<h4>Pre-roll video ready for downlod</h4>
+							if($vidsize == "320x480"){
 							<video controls preload=metadata width=320 height=480 style="background: #000 !important;" class="center-block">
 								<source src="converted/'.$convname.$vidext.'" type="video/mp4">
 							</video>
+							}
+							else {
+							<video controls preload=metadata width=480 height=320 style="background: #000 !important;" class="center-block">
+								<source src="converted/'.$convname.$vidext.'" type="video/mp4">
+							</video>
+							}
 							<p>Filename: '.$convname.' <a href="converted/'.$convname.$vidext.'" class="btn btn-lg btn-info center-block">Download Video</a></div>';
 						echo '</div></div>';
 						
