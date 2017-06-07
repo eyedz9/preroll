@@ -113,18 +113,15 @@ if (isset($_POST['submit']))
 					
 					//echo ("Deleted the uploaded source file: " . $filename);
 						//echo '</div>';
-					if($vidsize == "320x480"){
+					if(strcmp($vidsize,'320x480')==0){
 						echo '<video controls preload=metadata width=320 height=480 style="background: #000 !important;" class="center-block">
 								<source src="converted/'.$convname.$vidext.'" type="video/mp4">
-							</video>'
-						}
-						else {
-							echo '<video controls preload=metadata width=480 height=320 style="background: #000 !important;" class="center-block">
+							</video>';
+					}else{
+						echo '<video controls preload=metadata width=480 height=320 style="background: #000 !important;" class="center-block">
 								<source src="converted/'.$convname.$vidext.'" type="video/mp4">
-							</video>'
-						}
-
-					
+							</video>';
+					}					
 				}
 			 ?>
 		</div>
