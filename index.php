@@ -60,6 +60,18 @@ if (isset($_POST['submit']))
 		echo "Only these file typs are allowed for upload: " . implode(', ',$allowed_file_types);
 		unlink($_FILES["file"]["tmp_name"]);
 	}
+	
+
+/*** cycle through all files in the directory ***/
+foreach (glob($convertedLocation."*") as $file) {
+
+/*** if file is 24 hours (86400 seconds) old then delete it ***/
+if(time() - filectime($file) > 300){
+    unlink($file);
+    }
+}
+
+
 }
 ?>
 <!DOCTYPE html>
