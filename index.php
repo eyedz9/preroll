@@ -76,7 +76,7 @@ if (isset($_POST['submit']))
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 </head>
 	<body>
-		<div class="contianer" style="padding-top: 2em;">
+		<div class="contianer" style="padding-top: 2em; overflow: hidden;">
 			<div class="row" style="margin-bottom: 1em;">
 				<div class="col-md-4 col-md-offset-4">
 					<form action="" enctype="multipart/form-data" method="post">
