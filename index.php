@@ -108,12 +108,7 @@ if (isset($_POST['submit']))
 							<p>Filename: '.$convname.' <a href="converted/'.$convname.$vidext.'" class="btn btn-lg btn-info center-block">Download Video</a></div>';
 						echo '</div></div>';
 							
-						//echo '<br /><img src="'.$convertedLocation.$vidthumb.'" /><br />';
-					}
-					
-					//echo ("Deleted the uploaded source file: " . $filename);
-						//echo '</div>';
-					if(strcmp($vidsize,'320x480')==0){
+						if(strcmp($vidsize,'320x480')==0){
 						echo '<video controls preload=metadata width=320 height=480 style="background: #000 !important;" class="center-block">
 								<source src="converted/'.$convname.$vidext.'" type="video/mp4">
 							</video>';
@@ -121,7 +116,8 @@ if (isset($_POST['submit']))
 						echo '<video controls preload=metadata width=480 height=320 style="background: #000 !important;" class="center-block">
 								<source src="converted/'.$convname.$vidext.'" type="video/mp4">
 							</video>';
-					}					
+					}		
+					}
 				}
 			 ?>
 		</div>
