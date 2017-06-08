@@ -18,6 +18,8 @@
 		$loading = '/img/loading.gif';
 		$thumbext = '.jpg';
 		$vidthumb = $today . $spacer . $vidsize . $spacer . $file_basename . $thumbext;
+		$vidstart = $_POST['vidstart'];
+		$vidend = $_POST['vidend'];
 			
 		if (in_array($file_ext,$allowed_file_types)) {	
 			// Rename file
@@ -29,7 +31,7 @@
 			}
 			else {		
 				move_uploaded_file($_FILES["file"]["tmp_name"], "upload/" . $filename);
-				exec("/usr/bin/ffmpeg -i ".$uploadLocation.$filename." -vcodec libx264 -b 900k -r 25 -aspect 16:9 -s ".$vidsize." ".$convertedLocation.$convname." 2>&1");
+				exec("/usr/bin/ffmpeg -i ".$uploadLocation.$filename." -vcodec libx264 -b 900k -r 25 -aspect 16:9 -s ".$vidsize." -ss ".$vidstart." -to ".$vidend." -c ".$convertedLocation.$convname." 2>&1");
 			}
 		}
 		elseif (empty($file_basename)){	
@@ -78,6 +80,16 @@
 								<option value="320x480" selected="selected">Portrait (320x480)</option>
 								<option value="480x320">Landscape (480x320)</option>
 							</select>
+						</div>
+						<div class="form-inline">
+							<div class="form-group">
+								<label>Start Time - hh:mm:ss</label>
+								<input type="text" class="form-control" name="vidstart" placeholder="00:00:00">
+							</div>
+							<div class="form-group">
+								<label>End Time - 00:00:30</label>
+								<input type="text" class="form-control" name="vidend" placeholder="00:00:30">
+							</div>
 						</div>
 						<input id="Submit" name="submit" type="submit" value="Submit" class="btn btn-primary" />
 					</form>
