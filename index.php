@@ -82,16 +82,7 @@
 								<option value="480x320">Landscape (480x320)</option>
 							</select>
 						</div>
-						<div class="form-inline">
-							<div class="form-group">
-								<label>Start Time - hh:mm:ss</label>
-								<input type="text" class="form-control" name="vidstart" placeholder="00:00:00">
-							</div>
-							<div class="form-group">
-								<label>End Time - 00:00:30</label>
-								<input type="text" class="form-control" name="vidend" placeholder="00:00:30">
-							</div>
-						</div>
+						
 						<input id="Submit" name="submit" type="submit" value="Submit" class="btn btn-primary" />
 					</form>
 				</div>
