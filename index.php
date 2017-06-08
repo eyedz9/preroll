@@ -11,6 +11,8 @@
 		$uploadLocation = 'upload/';
 		$convertedLocation = 'converted/';
 		$vidsize = $_POST['vidsize'];
+		$vidstart = $_POST['vidstart'];
+		$vidend = $_POST['vidend'];
 		$spacer = '_';
 		$today = date("Y_m_d_His");
 		$vid_ext = '.mp4';
@@ -18,8 +20,7 @@
 		$loading = '/img/loading.gif';
 		$thumbext = '.jpg';
 		$vidthumb = $today . $spacer . $vidsize . $spacer . $file_basename . $thumbext;
-		$vidstart = $_POST['vidstart'];
-		$vidend = $_POST['vidend'];
+
 			
 		if (in_array($file_ext,$allowed_file_types)) {	
 			// Rename file
