@@ -32,7 +32,7 @@
 			}
 			else {		
 				move_uploaded_file($_FILES["file"]["tmp_name"], "upload/" . $filename);
-				exec("/usr/bin/ffmpeg -i ".$uploadLocation.$filename." -vcodec libx264 -b 900k -r 25 -aspect 16:9 -s ".$vidsize." -ss 00:00:01 -to 00:00:31 ".$convertedLocation.$convname." 2>&1");
+				exec("/usr/bin/ffmpeg -i ".$uploadLocation.$filename." -vcodec libx264 -b 900k -r 25 -aspect 16:9 -s ".$vidsize." ".$convertedLocation.$convname." 2>&1");
 			}
 		}
 		elseif (empty($file_basename)){	
