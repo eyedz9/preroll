@@ -70,6 +70,7 @@
 		<div class="contianer" style="padding-top: 2em; overflow: hidden;">
 			<div class="row" style="margin-bottom: 1em;">
 				<div class="col-md-4 col-md-offset-4">
+					<h2 class="warning center">Please make sure file names are under 36 characters</h2>
 					<form action="" enctype="multipart/form-data" method="post">
 						<div class="form-group">
 							<label>Select Video:</label>
