@@ -16,7 +16,7 @@
 		$spacer = '_';
 		$today = date("Y_m_d_His");
 		$vid_ext = '.mp4';
-		$convname = $today . $spacer . $vidsize . $spacer . $file_basename . $vid_ext;
+		$convname = $today . $spacer . $vidsize . $spacer . $vid_ext; //. $file_basename
 		$loading = '/img/loading.gif';
 		$thumbext = '.jpg';
 		$vidthumb = $today . $spacer . $vidsize . $spacer . $file_basename . $thumbext;
